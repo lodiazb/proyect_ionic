@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-col size-md="6"><ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"> </ion-img></ion-col>
+        <ion-col size-md="12"><div class="ion-text-center">Sistema de Asistencia DUOCUC</div></ion-col>
+        <ion-col size-md="6"></ion-col>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class ="centrado">
+    <ion-title>Paso 2: Responde la pregunta secreta</ion-title>
+    <ion-text>{{ mdl_nombre }}</ion-text>
+    <ion-title>¿Nombre de tu mascota?</ion-title>
+    <ion-item class="ion-margin-top">
+      <ion-input label="Ingrese Respuesta" labelplacement="floating" [(ngModel)]="mdl_respuesta"></ion-input>
+    </ion-item>
+    <ion-button color="rgb(161, 72, 190)" expand="block" shape="round" class="degradado ion-margin-top" (click)="pregunta()"> Recuperar Contraseña</ion-button>
+
+    <ion-alert
+    [isOpen]="isAlertOpen"
+    header="informacion"
+    message="credenciales invalidas"
+    [buttons]="alertButtons">
+  </ion-alert>
+  </div>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">pregunta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+</ion-content>

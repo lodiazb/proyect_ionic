@@ -24,3 +24,32 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+.centrado{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.imagen {
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    width: 80%;
+    height: 80%;
+}
+
+.degradado, .ion-margin-top {
+    background: linear-gradient(90deg, rgb(161, 72, 190)28%, rgb(113, 18, 142)100%);
+    color: rgb(255, 255, 255);
+    justify-content: center; 
+}
+
+
+
