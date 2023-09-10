@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import {Animation, AnimationController, AlertController} from '@ionic/angular'
 
 
@@ -9,6 +9,9 @@ import {Animation, AnimationController, AlertController} from '@ionic/angular'
   styleUrls: ['./principal.page.scss'],
 })
 export class PrincipalPage implements OnInit, AfterViewInit {
+
+  mdl_correo: string = '';
+  mdl_contrasena: string ='';
 
   @ViewChild('titulo', { read: ElementRef, static: true}) itemTitulo!: ElementRef;
 
@@ -27,6 +30,23 @@ export class PrincipalPage implements OnInit, AfterViewInit {
   }
 
   cerrarsesion(){
+
+  }
+
+  miclase(){
+    let extras: NavigationExtras ={
+      state:{
+        user: this.mdl_correo,
+        pass:this.mdl_contrasena
+
+      // state: propiedad para recibir variables para que puedan navegar
+      }
+    }
+    
+  // let para crear variables en JavaScript, las variables existen solo donde se definen.
+  // si hay llaves {es un objeto}
+
+    this.router.navigate(['miclase'],extras)
     
   }
 

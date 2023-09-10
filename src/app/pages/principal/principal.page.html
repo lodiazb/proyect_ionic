@@ -11,6 +11,20 @@
 
 
 <ion-content [fullscreen]="true">
+  <div class="segment-buttons">
+    <ion-segment >
+      <ion-segment-button value="principal" >
+        Inicio
+      </ion-segment-button>
+      <ion-segment-button value="miclase" (click)="miclase()">
+        Mi Clase
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+
+
   <div class="centrado">
   <ion-title class="ion-padding-top">
     <ion-label>
@@ -23,7 +37,11 @@
   <b class="ion-text-center">
     <h4>Escanea el Código QR</h4>
   </b>
-  
+  <!-- Codigo QR -->
+  <b>qr<br> <!-- ELIMINAR--><!-- ELIMINAR--><!-- ELIMINAR--><!-- ELIMINAR--><!-- ELIMINAR-->
+  qrS<br>
+  qr<br>
+  </b>
 
   <!-- Cerrar Sesión -->
   <ion-button color="rgb(161, 72, 190)" expand="block" class="ion-margin-top" (click)="cerrarsesion()">Cerrar Sesión</ion-button>
