@@ -28,11 +28,15 @@ export class PreguntaPage implements OnInit {
           user: this.mdl_pregunta
         }
       }
-      this.router.navigate(['correcto'],extras)
-    }else {
-      this.router.navigate(['incorrecto']) 
+    if(this.isAlertOpen)
+      this.router.navigate(['correcto'])
+    if(this.isAlertOpen)
+      this.router.navigate(['incorrecto'])
+    }else{
+      this.isAlertOpen = true;  
     }
 
+    }
   }
 
-}
+      

@@ -8,6 +8,8 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class CorrectoPage implements OnInit {
 
+  mdl_password: string='1234'
+
   isAlertOpen = false;
   public alertButtons = ['OK'];
 
