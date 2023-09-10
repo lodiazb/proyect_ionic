@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-incorrecto',
@@ -8,7 +9,16 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class IncorrectoPage implements OnInit {
 
-  constructor(private router: Router) { }
+
+
+  constructor(
+
+    private router: Router
+    ) { 
+    
+
+
+  }
 
   ngOnInit() {
   }

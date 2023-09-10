@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import {Animation, AnimationController, AlertController} from '@ionic/angular'
-
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-miclase',
@@ -15,13 +15,27 @@ export class MiclasePage implements OnInit, AfterViewInit {
 
   @ViewChild('titulo', { read: ElementRef, static: true}) itemTitulo!: ElementRef;
 
-
+  public usuario: Usuario = new Usuario();
 
   constructor(
     private activeroute: ActivatedRoute,
     private router:Router,
     private alertController: AlertController,
-    private animationController: AnimationController) {} 
+    private animationController: AnimationController) {
+
+      this.activeroute.queryParams.subscribe(params => {
+
+        const nav = this.router.getCurrentNavigation();
+        if (nav) {
+          if (nav.extras.state) {
+            this.usuario = nav.extras.state['usuario'];
+            console.log(this.usuario.toString());
+            return;
+          }
+        }
+        this.router.navigate(['/login']);
+      });
+    } 
 
     
 
