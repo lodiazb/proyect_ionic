@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario'; 
 
 @Component({
   selector: 'app-login',
@@ -8,8 +9,7 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  mdl_correo: string = '';
-  mdl_contrasena: string ='';
+  mdl_usuario: Usuario = new Usuario();
 
   isAlertOpen = false;
   public alertButtons = ['OK'];
@@ -25,13 +25,12 @@ export class LoginPage implements OnInit {
   }
 
   login(){
-    if (this.mdl_correo == 'lo.diazb@duocuc.cl' && this.mdl_contrasena == '1234'){
+    if (this.mdl_usuario.mdl_correo == 'lo.diazb@duocuc.cl' && this.mdl_usuario.mdl_contrasena == '1234'){
 
       let extras: NavigationExtras ={
         state:{
-          user: this.mdl_correo,
-          pass:this.mdl_contrasena
-
+          user: this.mdl_usuario.mdl_correo,
+          pass:this.mdl_usuario.mdl_contrasena
         // state: propiedad para recibir variables para que puedan navegar
         }
       }

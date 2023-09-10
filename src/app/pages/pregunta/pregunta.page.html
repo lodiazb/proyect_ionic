@@ -9,10 +9,10 @@
 <ion-content [fullscreen]="true">
   <div class ="centrado">
     <ion-text class="ion-text-center"><h1>Paso 2: Responde la prgunta secreta</h1></ion-text>
-    <ion-text class="ion-text-center"><h2>Usuario: {{ mdl_nombre }}</h2></ion-text>
+    <ion-text class="ion-text-center"><h2>Usuario: {{ mdl_usuario.mdl_nombre }}</h2></ion-text>
     <ion-text class="ion-text-center"><h2>¿Cuál es el nombre de tu mascota?</h2></ion-text>
     <ion-item class="ion-margin-top">
-      <ion-input label="Ingrese Respuesta" labelplacement="floating" [(ngModel)]="mdl_respuesta"></ion-input>
+      <ion-input label="Ingrese Respuesta" labelplacement="floating" [(ngModel)]="mdl_usuario.mdl_respuesta"></ion-input>
     </ion-item>
     <ion-button color="rgb(161, 72, 190)" expand="block" shape="round" class="degradado ion-margin-top" (click)="pregunta()"> Recuperar Contraseña</ion-button>
 

@@ -9,18 +9,17 @@
 <ion-content [fullscreen]="true">
   <div class="centrado">
     <ion-item class="ion-margin-top">
-      <ion-input label="correo" labelplacement="floating" [(ngModel)]="mdl_correo"></ion-input>
+      <ion-input label="correo" labelplacement="floating" [(ngModel)]="mdl_usuario.mdl_correo"></ion-input>
     </ion-item>
     <br />
-      <ion-item class="ion-margin-top">
-        <ion-input type="password" label="contraseña" labelplacement="floating" [(ngModel)]="mdl_contrasena"></ion-input>
-      </ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-input type="password" label="contraseña" labelplacement="floating" [(ngModel)]="mdl_usuario.mdl_contrasena"></ion-input>
+    </ion-item>
     <br />
 
     <!-- Botones -->
     <ion-button color="rgb(161, 72, 190)" expand="block" class="degradado ion-margin-top" (click)="login()"> Ingresar </ion-button>
-    <ion-button color="rgb(161, 72, 190)" expand="block" class="ion-margin-top"  (click)="contrasena()"> he olvidado mi contraseña </ion-button>
-
+    <ion-button color="rgb(161, 72, 190)" expand="block" class="ion-margin-top"  (click)="contrasena()"> He olvidado mi contraseña </ion-button>
 
     <ion-alert
       [isOpen]="isAlertOpen"
@@ -29,5 +28,4 @@
       [buttons]="alertButtons">
     </ion-alert>
   </div>
-  
 </ion-content>

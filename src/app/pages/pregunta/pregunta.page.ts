@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-pregunta',
@@ -8,9 +9,7 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class PreguntaPage implements OnInit {
 
-  mdl_pregunta: string='';
-  mdl_nombre: string='Loreto Díaz';
-  mdl_respuesta: string='';
+  mdl_usuario: Usuario = new Usuario();
 
   isAlertOpen = false;
   public alertButtons = ['OK'];
@@ -22,16 +21,14 @@ export class PreguntaPage implements OnInit {
   }
 
   pregunta() {
-    if (this.mdl_respuesta === 'dulce') {
+    if (this.mdl_usuario.mdl_respuesta === 'dulce') {
       let extras: NavigationExtras = {
         state: {
-          user: this.mdl_pregunta
+          user: this.mdl_usuario.mdl_pregunta
         }
       };
-  
-      this.router.navigate(['correcto'], extras);
+    this.router.navigate(['correcto'], extras);
     } else {
-
       this.router.navigate(['incorrecto']);
     }
   }
