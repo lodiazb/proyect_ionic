@@ -1,16 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import {Animation, AnimationController, AlertController} from '@ionic/angular'
+
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
 })
-export class PrincipalPage implements OnInit {
+export class PrincipalPage implements OnInit, AfterViewInit {
 
-  constructor(private router:Router) { }
+  @ViewChild('titulo', { read: ElementRef, static: true}) itemTitulo!: ElementRef;
 
-  ngOnInit() {
+
+
+  constructor(
+    private activeroute: ActivatedRoute,
+    private router:Router,
+    private alertController: AlertController,
+    private animationController: AnimationController) {} 
+
+    
+
+
+  ngOnInit(): void {
+  }
+
+  cerrarsesion(){
+    
+  }
+
+  public ngAfterViewInit(): void {
+    if (this.itemTitulo) {
+      const animation = this.animationController
+        .create()
+        .addElement(this.itemTitulo.nativeElement)
+        .iterations(Infinity)
+        .duration(6000)
+        .fromTo('transform', 'translate(0%)', 'translate(100%)')
+        .fromTo('opacity', 0.2 , 1)
+
+      animation.play();
+    }
   }
 
 }
