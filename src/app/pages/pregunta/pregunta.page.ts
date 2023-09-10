@@ -21,19 +21,18 @@ export class PreguntaPage implements OnInit {
   ngOnInit() {
   }
 
-  pregunta(){
-    if(this.mdl_respuesta=='dulce'){
-      let extras: NavigationExtras ={
-        state:{
+  pregunta() {
+    if (this.mdl_respuesta === 'dulce') {
+      let extras: NavigationExtras = {
+        state: {
           user: this.mdl_pregunta
         }
-      }
-      this.router.navigate(['correcto',extras])
-    }else{
-      this.router.navigate(['incorrecto'])
-    // if(this.isAlertOpen)
-    //   this.isAlertOpen = true;  
-    }
+      };
+  
+      this.router.navigate(['correcto'], extras);
+    } else {
 
+      this.router.navigate(['incorrecto']);
     }
   }
+}  
