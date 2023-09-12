@@ -1,19 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-toolbar>
       <ion-col size-md="6"><ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"> </ion-img></ion-col>
         <ion-col size-md="12"><div class="ion-text-center">Sistema de Asistencia DUOCUC</div></ion-col>
         <ion-col size-md="6"></ion-col>
   </ion-toolbar>
-  <ion-content [fullscreen]="true" class="center-image">
+<ion-content>
+  <ion-card-content class="ion-text-center">
     <ion-img src="/assets/icon/listo.png"></ion-img>
+    <ion-text class="ion-text-center"><h2>Usuario: {{ usuario?.mdl_nombre }}</h2></ion-text>
+    <ion-card-subtitle> <h2>Su contraseña es: {{usuario?.mdl_contrasena}} </h2></ion-card-subtitle>
+    <ion-button color="rgb(161, 72, 190)" expand="full" class="degradado ion-margin-top" (click)="login()">Ir al Inicio</ion-button>
+  </ion-card-content>
+</ion-content>
 
-    <ion-text class="ion-text-center"><h1>Su contraseña es {{ mdl_password }}</h1>  </ion-text>
-    
-  <ion-button color="rgb(161, 72, 190)" expand="block" shape="round" class="degradado ion-margin-top" (click)="login()"> Volver al Inicio </ion-button>
-  </ion-content>
-  
-  
-</ion-header>
 
 
 

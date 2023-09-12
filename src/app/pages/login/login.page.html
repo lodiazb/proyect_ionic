@@ -1,31 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-      <ion-col size-md="6"><ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"> </ion-img></ion-col>
-        <ion-col size-md="12"><div class="ion-text-center">Sistema de Asistencia DUOCUC</div></ion-col>
-        <ion-col size-md="6"></ion-col>
+    <ion-col size-md="6">
+      <ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"></ion-img>
+    </ion-col>
+    <ion-col size-md="12">
+      <div class="ion-text-center">Sistema de Asistencia DUOCUC</div>
+    </ion-col>
+    <ion-col size-md="6"></ion-col>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="centrado">
     <ion-item class="ion-margin-top">
-      <ion-input label="correo" labelplacement="floating" [(ngModel)]="mdl_usuario.mdl_correo"></ion-input>
+      <ion-input label="correo" labelplacement="floating" [(ngModel)]="usuario.mdl_correo"></ion-input>
     </ion-item>
     <br />
     <ion-item class="ion-margin-top">
-      <ion-input type="password" label="contraseña" labelplacement="floating" [(ngModel)]="mdl_usuario.mdl_contrasena"></ion-input>
+      <ion-input type="password" label="contraseña" labelplacement="floating" [(ngModel)]="usuario.mdl_contrasena"></ion-input>
     </ion-item>
     <br />
 
     <!-- Botones -->
     <ion-button color="rgb(161, 72, 190)" expand="block" class="degradado ion-margin-top" (click)="login()"> Ingresar </ion-button>
     <ion-button color="rgb(161, 72, 190)" expand="block" class="ion-margin-top"  (click)="contrasena()"> He olvidado mi contraseña </ion-button>
-
-    <ion-alert
-      [isOpen]="isAlertOpen"
-      header="Aviso"
-      message="Credenciales invalidas"
-      [buttons]="alertButtons">
-    </ion-alert>
+    
+  <ion-alert
+   
+    header="Aviso"
+    message="Credenciales inválidas"
+    >
+  </ion-alert>
   </div>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario'; 
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -9,44 +10,61 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class LoginPage implements OnInit {
 
-  mdl_usuario: Usuario = new Usuario();
+  isAlertOpen: boolean = false; 
+  alertButtons: any[] = []; 
 
-  isAlertOpen = false;
-  public alertButtons = ['OK'];
 
-  constructor(private router: Router) { }
+  public usuario: Usuario = new Usuario('', '', '', '', ''); // Inicializa un usuario
 
-  ngOnInit() {
+  constructor(private router: Router, private toastController: ToastController) {}
+
+  ngOnInit(): void {}
+
+  contrasena(): void {
+    this.router.navigate(['correo']);
   }
 
+  login(): void {
+    if (!this.validarUsuario(this.usuario)) {
+      return;
+    }
 
-  contrasena(){
-    this.router.navigate(['correo'])
-  }
+    this.mostrarMensaje('¡Bienvenido!');
 
-  login(){
-    if (this.mdl_usuario.mdl_correo == 'lo.diazb@duocuc.cl' && this.mdl_usuario.mdl_contrasena == '1234'){
-
-      let extras: NavigationExtras ={
-        state:{
-          user: this.mdl_usuario.mdl_correo,
-          pass:this.mdl_usuario.mdl_contrasena
-        // state: propiedad para recibir variables para que puedan navegar
-        }
+    const navigationExtras: NavigationExtras = {
+      state: {
+        usuario: this.usuario
       }
-      
-    // let para crear variables en JavaScript, las variables existen solo donde se definen.
-    // si hay llaves {es un objeto}
+    };
+    this.router.navigate(['principal'], navigationExtras);
+  }
 
-      this.router.navigate(['principal'],extras)
-    }else {
-      this.isAlertOpen = true;  
+  recuperar(): void {
+    this.router.navigate(['/correo']);
+  }
+
+  validarUsuario(usuario: Usuario): boolean {
+    const usu = this.usuario.buscarUsuarioValido(
+      usuario.mdl_correo, usuario.mdl_contrasena
+    );
+
+    if (usu) {
+      this.usuario = usu; // Actualiza la instancia de usuario
+      return true;
+    } else {
+      this.mostrarMensaje('Las credenciales no son correctas!');
+      return false;
     }
   }
 
-
-  
-
+  async mostrarMensaje(mensaje: string, duracion?: number) {
+    const toast = await this.toastController.create({
+        message: mensaje,
+        duration: duracion ? duracion : 2000
+      });
+    toast.present();
+  }
 }
+
 
   

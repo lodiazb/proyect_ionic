@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import {Animation, AnimationController, AlertController} from '@ionic/angular'
+import { Animation, AnimationController, AlertController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/usuario';
 
 @Component({
@@ -11,57 +11,50 @@ import { Usuario } from 'src/app/models/usuario';
 export class MiclasePage implements OnInit, AfterViewInit {
 
   mdl_correo: string = '';
-  mdl_contrasena: string ='';
+  mdl_contrasena: string = '';
 
-  @ViewChild('titulo', { read: ElementRef, static: true}) itemTitulo!: ElementRef;
+  @ViewChild('titulo', { read: ElementRef, static: true }) itemTitulo!: ElementRef;
 
-  public usuario: Usuario = new Usuario();
+  public usuario: Usuario = new Usuario('correo', 'contraseña', 'nombre', 'pregunta', 'respuesta');
+
 
   constructor(
     private activeroute: ActivatedRoute,
-    private router:Router,
+    private router: Router,
     private alertController: AlertController,
-    private animationController: AnimationController) {
+    private animationController: AnimationController
+  ) {
 
-      this.activeroute.queryParams.subscribe(params => {
+    this.activeroute.queryParams.subscribe(params => {
 
-        const nav = this.router.getCurrentNavigation();
-        if (nav) {
-          if (nav.extras.state) {
-            this.usuario = nav.extras.state['usuario'];
-            console.log(this.usuario.toString());
-            return;
-          }
+      const nav = this.router.getCurrentNavigation();
+      if (nav) {
+        if (nav.extras.state) {
+          this.usuario = nav.extras.state['usuario'];
+          console.log(this.usuario.toString());
+          return;
         }
-        this.router.navigate(['/login']);
-      });
-    } 
-
-    
-
+      }
+      this.router.navigate(['/login']);
+    });
+  }
 
   ngOnInit(): void {
   }
 
-  cerrarsesion(){
-
+  cerrarsesion() {
+    // Implementa la lógica para cerrar sesión
   }
 
-  principal(){
-    let extras: NavigationExtras ={
-      state:{
+  principal() {
+    let extras: NavigationExtras = {
+      state: {
         user: this.mdl_correo,
-        pass:this.mdl_contrasena
-
-      // state: propiedad para recibir variables para que puedan navegar
+        pass: this.mdl_contrasena
       }
     }
-    
-  // let para crear variables en JavaScript, las variables existen solo donde se definen.
-  // si hay llaves {es un objeto}
 
-    this.router.navigate(['principal'],extras)
-    
+    this.router.navigate(['principal'], extras);
   }
 
   public ngAfterViewInit(): void {
@@ -72,10 +65,10 @@ export class MiclasePage implements OnInit, AfterViewInit {
         .iterations(Infinity)
         .duration(6000)
         .fromTo('transform', 'translate(0%)', 'translate(100%)')
-        .fromTo('opacity', 0.2 , 1)
+        .fromTo('opacity', 0.2, 1)
 
       animation.play();
     }
   }
-
 }
+

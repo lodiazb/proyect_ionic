@@ -1,33 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-      <ion-col size-md="6"><ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"> </ion-img></ion-col>
-        <ion-col size-md="12"><div class="ion-text-center">Sistema de Asistencia DUOCUC</div></ion-col>
-        <ion-col size-md="6"></ion-col>
+    <ion-col size-md="6"><ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"> </ion-img></ion-col>
+    <ion-col size-md="12"><div class="ion-text-center">Sistema de Asistencia DUOCUC</div></ion-col>
+    <ion-col size-md="6"></ion-col>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class ="centrado">
-    <ion-text class="ion-text-center"><h1>Paso 2: Responde la prgunta secreta</h1></ion-text>
-    <ion-text class="ion-text-center"><h2>Usuario: {{ mdl_usuario.mdl_nombre }}</h2></ion-text>
-    <ion-text class="ion-text-center"><h2>¿Cuál es el nombre de tu mascota?</h2></ion-text>
+  <div class="centrado">
+    <ion-text class="ion-text-center"><h1>Paso 2: Responde la pregunta</h1></ion-text>
+    <ion-text class="ion-text-center"><h2>Usuario: {{ usuario?.mdl_nombre }}</h2></ion-text>
+    <ion-text class="ion-text-center"><h2>{{usuario?.mdl_pregunta }}</h2></ion-text>
     <ion-item class="ion-margin-top">
-      <ion-input label="Ingrese Respuesta" labelplacement="floating" [(ngModel)]="mdl_usuario.mdl_respuesta"></ion-input>
+      <ion-input label="Ingrese Respuesta" labelplacement="floating" [(ngModel)]="mdl_respuesta"></ion-input>
     </ion-item>
-    <ion-button color="rgb(161, 72, 190)" expand="block" shape="round" class="degradado ion-margin-top" (click)="pregunta()"> Recuperar Contraseña</ion-button>
-
- 
+    <ion-button color="rgb(161, 72, 190)" (click)="validarRespuestaSecreta()">Recuperar contraseña</ion-button>
   </div>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-    </ion-toolbar>
-  </ion-header>
+
   <ion-alert
-  [isOpen]="isAlertOpen"
-  header="Aviso"
-  message="Campo obligatorio"
-  [buttons]="alertButtons">
-</ion-alert>
- 
-  
+    
+    header="Aviso"
+    message="Campo obligatorio"
+    >
+  </ion-alert>
 </ion-content>
+

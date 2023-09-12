@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario';
+import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-correo',
   templateUrl: './correo.page.html',
@@ -7,37 +10,45 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class CorreoPage implements OnInit {
 
-  mdl_correo: string = '';
-  
+  public correo: string = '';
+  public isAlertOpen: boolean = false;
+  public alertButtons: any[] = [];
 
-
-  isAlertOpen = false;
-  public alertButtons = ['OK'];
-  
-  constructor(private router: Router) { }
+  constructor(private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
   }
 
-  login() {
-    this.router.navigate(['login']);
+  async recuperarContrasena() {
+    if (this.correo.trim() === '') {
+      const alert = await this.alertController.create({
+        header: 'Aviso',
+        message: 'Campo obligatorio',
+        buttons: ['OK']
+      });
+
+      await alert.present();
+    } else {
+      // Tu lógica para recuperar la contraseña aquí
+      // Puedes usar this.correo para obtener la dirección de correo ingresada
+      const usuario = new Usuario('', '', '', '', '');
+      const usuarioEncontrado = usuario.buscarUsuarioPorCorreo(this.correo);
+
+      if (!usuarioEncontrado) {
+        alert('El correo no se encuentra');
+      } else {
+        const navigationExtras: NavigationExtras = {
+          state: {
+            usuario: usuarioEncontrado
+          }
+        };
+        this.router.navigate(['/pregunta'], navigationExtras);
+      }
+    }
   }
 
-  correo(){
-    if(this.mdl_correo == 'lo.diazb@duocuc.cl'){
-      let extras: NavigationExtras ={
-        state:{
-          user: this.mdl_correo
-        }
-      }
-      
-      this.router.navigate(['pregunta'],extras)
-    }else {
-      this.isAlertOpen = true;  
-    }
-    
-  
-
+  volverAlInicio() {
+    this.router.navigate(['/login']);
   }
 
 }

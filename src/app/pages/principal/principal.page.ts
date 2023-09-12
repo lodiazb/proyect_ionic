@@ -12,10 +12,11 @@ export class PrincipalPage implements OnInit, AfterViewInit {
 
   mdl_correo: string = '';
   mdl_contrasena: string ='';
+  mdl_nombre: string = '';
 
   @ViewChild('titulo', { read: ElementRef, static: true}) itemTitulo!: ElementRef;
 
-  public usuario: Usuario = new Usuario();
+  public usuario: Usuario = new Usuario('correo', 'contraseña', 'nombre', 'pregunta', 'respuesta');
 
   constructor(
     private activeroute: ActivatedRoute,
@@ -36,12 +37,11 @@ export class PrincipalPage implements OnInit, AfterViewInit {
         this.router.navigate(['/login']);
       });
 
-    } 
-
-    
+    }    
 
 
   ngOnInit(): void {
+    this.mdl_nombre = 'Ana Torres Leiva';
   }
 
   cerrarsesion(){
