@@ -13,12 +13,17 @@
 <ion-content [fullscreen]="true">
   <div class="centrado">
     <ion-item class="ion-margin-top">
-      <ion-input label="Correo" labelplacement="floating" [(ngModel)]="usuario.mdl_correo"></ion-input>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input placeholder="" [(ngModel)]="usuario.mdl_correo"></ion-input>
     </ion-item>
     <br />
+
     <ion-item class="ion-margin-top">
-      <ion-input type="password" label="Contraseña" labelplacement="floating" [(ngModel)]="usuario.mdl_contrasena"></ion-input>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" placeholder="" [(ngModel)]="usuario.mdl_contrasena"></ion-input>
     </ion-item>
+
+ 
     <br />
 
     <!-- Botones -->

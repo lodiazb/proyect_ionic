@@ -35,7 +35,7 @@ export class CorreoPage implements OnInit {
       const usuarioEncontrado = usuario.buscarUsuarioPorCorreo(this.correo);
 
       if (!usuarioEncontrado) {
-        alert('El correo no se encuentra');
+        this.router.navigate(['/incorrecto']);
       } else {
         const navigationExtras: NavigationExtras = {
           state: {

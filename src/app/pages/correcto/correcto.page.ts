@@ -10,9 +10,11 @@ import {  Navigation, NavigationExtras } from '@angular/router';
   styleUrls: ['./correcto.page.scss'],
 })
 export class CorrectoPage implements OnInit {
-  public usuario: Usuario | undefined;
+  //public usuario: Usuario | undefined;
+  public usuario: Usuario = new Usuario('correo', 'contraseña', 'nombre', 'pregunta', 'respuesta');
   public mdl_contrasena: string='';
   public mdl_nombre: string = '';
+  public mdl_correo: string = '';
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,)
   {

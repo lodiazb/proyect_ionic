@@ -12,6 +12,7 @@ export class PreguntaPage implements OnInit {
   public mdl_nombre: string = '';
   public mdl_pregunta: string = '';
   public mdl_respuesta: string = '';
+  public mdl_correo: string = '';
   
   
   isAlertOpen: boolean = false;
@@ -37,13 +38,14 @@ export class PreguntaPage implements OnInit {
 
   public validarRespuestaSecreta(): void {
     if (this.usuario?.mdl_respuesta === this.mdl_respuesta) {
-      let extras: NavigationExtras = {
+      const navigationExtras: NavigationExtras = {
         state: {
-          usuario: this.usuario.mdl_respuesta
+          usuario: this.usuario
         }
       };
+      
 
-      this.router.navigate(['correcto'], extras);
+      this.router.navigate(['correcto'], navigationExtras);
     } else {
       this.router.navigate(['incorrecto']);
     }
