@@ -11,37 +11,65 @@
 
 
 <ion-content [fullscreen]="true">
-  <div class="segment-buttons">
-    <ion-segment >
-      <ion-segment-button value="principal" >
-        Inicio
-      </ion-segment-button>
-      <ion-segment-button value="miclase" (click)="miclase()">
-        Mi Clase
-      </ion-segment-button>
-    </ion-segment>
-  </div>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      
+        <ion-img src="assets/Logo_DuocUC.svg.png" slot="start"></ion-img>
+      
+      <ion-title size="large" class="slide-animation">
+        <h1  class="slide-animation">Tu Título</h1>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
 
 
 
-
-  <div class="centrado">
-  <ion-title class="ion-padding-top">
-    <ion-label>
-      <h1 class="ion-text-center">¡Bienvenid@!</h1>
-      <ion-text class="ion-text-center"><h1>Usuario: {{ usuario.mdl_nombre }}</h1>  </ion-text>
-      <!-- Hay que cambiar la forma de llamar al usuario-->
-    </ion-label>
-  </ion-title>
-<br>
-  <b class="ion-text-center">
-    <h4>Escanea el Código QR</h4>
-  </b>
-  <!-- Codigo QR -->
-  <ion-img src="/assets/icon/QR.png" > </ion-img>
+    <ion-card>
+      <ion-card-header>
+        
+        <h1 class="ion-text-center">¡Bienvenid@!</h1>
+      <ion-text class="ion-text-center"><h1>Usuario: {{ usuario.mdl_nombre }}</h1>  </ion-text>  
+      </ion-card-header>
+      <ion-card-content>
+        <br>
+        
   
-
-  <!-- Cerrar Sesión -->
+  <input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera" 
+      (change)="verificarArchivoConQR($event.target.files)" />
+  
+    <!-- <ion-button  (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Cargar Imagen con Código QR
+    </ion-button> -->
+  
+    <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
+      <ion-icon slot="start" name="videocam-outline"></ion-icon>
+      Comenzar Escaneo de QR
+    </ion-button>
+  
+    <ion-button *ngIf="escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round">
+      <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+      Detener escaneo de QR
+    </ion-button>
+  
+    <!-- <ion-button (click)="limpiarDatos()" expand="block" expand="full" shape="round">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+      Limpiar datos
+    </ion-button> -->
+  
+    <video #video [hidden]="!escaneando" width="100%"></video>
+    <canvas #canvas hidden></canvas>
+  
+        <br><br>
+        <h3 hidden>
+        Escaneando: {{ escaneando }}
+        </h3><br>
+      </ion-card-content>
+    </ion-card>
+      <!-- Cerrar Sesión -->
   <ion-button color="rgb(161, 72, 190)" expand="block" class="ion-margin-top" (click)="cerrarsesion()">Cerrar Sesión</ion-button>
-</div>
+  </ion-content>
+  
+  
 </ion-content>

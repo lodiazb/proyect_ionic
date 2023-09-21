@@ -12,6 +12,16 @@ export class MiclasePage implements OnInit, AfterViewInit {
 
   mdl_correo: string = '';
   mdl_contrasena: string = '';
+  public bloqueInicio: number = 0;
+  public bloqueTermino: number = 0;
+  public dia: string = '';
+  public horaFin: string = '';
+  public horaInicio: string = '';
+  public idAsignatura: string = '';
+  public nombreAsignatura: string = '';
+  public nombreProfesor: string = '';
+  public seccion: string = '';
+  public sede: string = '';  
 
   @ViewChild('titulo', { read: ElementRef, static: true }) itemTitulo!: ElementRef;
 
@@ -35,15 +45,27 @@ export class MiclasePage implements OnInit, AfterViewInit {
           return;
         }
       }
-      this.router.navigate(['/login']);
+      //this.router.navigate(['/login']);
+    });
+  }
+  ngOnInit() {
+    this.activeroute.paramMap.subscribe(params => {
+      console.log(params); // Agrega este console.log para verificar los datos
+      this.bloqueInicio = +params.get('bloqueInicio');
+      this.bloqueTermino = +params.get('bloqueTermino');
+      this.dia = params.get('dia');
+      this.horaFin = params.get('horaFin');
+      this.horaInicio = params.get('horaInicio');
+      this.idAsignatura = params.get('idAsignatura');
+      this.nombreAsignatura = params.get('nombreAsignatura');
+      this.nombreProfesor = params.get('nombreProfesor');
+      this.seccion = params.get('seccion');
+      this.sede = params.get('sede');
     });
   }
 
-  ngOnInit(): void {
-  }
-
   cerrarsesion() {
-    // Implementa la lógica para cerrar sesión
+    this.router.navigate(['/login']);
   }
 
   principal() {

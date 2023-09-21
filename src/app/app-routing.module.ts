@@ -30,10 +30,15 @@ const routes: Routes = [
   {
     path: 'incorrecto',
     loadChildren: () => import('./pages/incorrecto/incorrecto.module').then( m => m.IncorrectoPageModule)
-  },  {
+  },
+  {
     path: 'miclase',
     loadChildren: () => import('./pages/miclase/miclase.module').then( m => m.MiclasePageModule)
   },
+  {
+    path: 'miclase/:bloqueInicio/:bloqueTermino/:dia/:horaFin/:horaInicio/:idAsignatura/:nombreAsignatura/:nombreProfesor/:seccion/:sede',
+    loadChildren: () => import('./pages/miclase/miclase.module').then(m => m.MiclasePageModule)
+  }
 
 ];
 
