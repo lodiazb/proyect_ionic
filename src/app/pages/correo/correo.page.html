@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-col size-md="6">
+      <ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"></ion-img>
+    </ion-col>
+    <ion-col size-md="12">
+      <div class="ion-text-center">Sistema de Asistencia DUOCUC</div>
+    </ion-col>
+    <ion-col size-md="6"></ion-col>
+  </ion-toolbar>
+</ion-header>
+<br>
+<ion-content [fullscreen]="true">
+  <img src="https://res.cloudinary.com/postedin/image/upload/d_recorriendo:no-image.jpg,f_auto,q_80/recorriendo/c-28b93bf742.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; WIDTH:100%; height: 100%;">
+  <div class="centrado">
+    <ion-card-content class="login ion-fade-in-up ion-animatable">
+      <ion-title>
+        <h2>PASO 1</h2>
+        <h2>Ingresa tu correo</h2>
+        <br>
+      </ion-title>
+      <ion-item class="ion-margin-top">
+        <ion-input label="Ingrese su correo" labelplacement="floating" [(ngModel)]="correo"></ion-input>
+      </ion-item>
+    
+      <ion-row>
+        <ion-col size="12">
+          <br>
+          <ion-button shape="block" (click)="recuperarContrasena()">Recuperar Contraseña</ion-button>
+          <ion-button expand="block" class="ion-margin-top"  (click)="volverAlInicio()"> Volver al Inicio </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  
+    <ion-alert
+      [isOpen]="isAlertOpen"
+      header="Aviso"
+      message="Campo obligatorio"
+      [buttons]="alertButtons">
+    </ion-alert>
+  </div>
+</ion-content>
+
+
+

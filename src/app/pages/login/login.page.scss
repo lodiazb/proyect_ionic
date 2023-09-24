@@ -1,0 +1,115 @@
+
+.full-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Agrega posición relativa para que los elementos secundarios se posicionen correctamente */
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  /* Agrega una capa de superposición semitransparente */
+  .background-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 0, 0, 10); /* Ajusta el color y la opacidad de la superposición */
+    z-index: -1;
+  }
+  
+  /* Resto de estilos... */
+  
+  
+  
+  /* Cambiar el tamaño de la imagen */
+  .mi-panel-header .panel {
+    width: 100px;
+    height: auto;
+    margin: 10px; /* Agregar margen alrededor de la imagen */
+    }
+    
+    /* Cambiar el tamaño de fuente del título */
+    .mi-panel-header .ion-title {
+    font-size: 20px;
+    font-weight: bold; /* Hacer que el título sea negrita */
+    color: #cc3a3a; /* Cambiar el color del texto del título */
+    }
+  
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh; /* Ajusta la altura como desees */
+    padding: 10px; /* Espaciado alrededor del contenido */
+  }
+  
+  ion-title {
+    text-align: center;
+  }
+  
+  ion-card-content.login {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  ion-button {
+    width: 100%;
+  }
+  
+  
+  /* Animación de bienvenida */
+  .ion-fade-in {
+    animation: fadein 1.5s ease-in-out;
+  }
+  
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Animación de tarjeta QR */
+  .ion-fade-in-up {
+    animation: fadeinup 1s ease-in-out;
+  }
+  
+  @keyframes fadeinup {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  h4 {
+    color: #fff;
+  }
+  
+  
+  
+  
+  
+  

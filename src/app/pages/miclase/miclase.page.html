@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-col size-md="6">
+      <ion-img src="/assets/icon/logo-duoc.png" class="logo ion-margin-left"></ion-img>
+    </ion-col>
+    <ion-title #titulo class="ion-text-left ion-text">
+      <div>
+        Sistema de Asistencia Duoc
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <div class="segment-buttons">
+    <ion-segment >
+      <ion-segment-button value="principal" (click)="principal()" >
+        Inicio
+      </ion-segment-button>
+      <ion-segment-button value="miclase" >
+        Mi Clase
+      </ion-segment-button>
+    </ion-segment>
+  </div> -->
+
+
+
+
+  <div class="centrado">
+  <ion-title class="ion-padding-top">
+    <ion-label>
+      <h1 class="ion-text-center">Datos de la Asignatura</h1>
+      <br><br>
+      <table>
+        <tr>
+          <td class="ancho_columna_titulos">Bloque de Inicio</td>
+          <td id="data">{{bloqueInicio}}</td>
+        </tr>
+        <tr>
+          <td>Bloque de Término</td>
+          <td id="data">{{bloqueTermino}}</td>
+        </tr>
+        <tr>
+          <td>Día</td>
+          <td id="data">{{dia}}</td>
+        </tr>
+        <tr>
+          <td>Hora de Fin</td>
+          <td id="data">{{horaFin}}</td>
+        </tr>
+        <tr>
+          <td>Hora de Inicio</td>
+          <td id="data">{{horaInicio}}</td>
+        </tr>
+        <tr>
+          <td>Sigla</td>
+          <td id="data">{{idAsignatura}}</td>
+        </tr>
+        <tr>
+          <td>Nombre de Asignatura</td>
+          <td id="data">{{nombreAsignatura}}</td>
+        </tr>
+        <tr>
+          <td>Nombre del Profesor</td>
+          <td id="data">{{nombreProfesor}}</td>
+        </tr>
+        <tr>
+          <td>Sección</td>
+          <td id="data">{{seccion}}</td>
+        </tr>
+        <tr>
+          <td>Sede</td>
+          <td id="data">{{sede}}</td>
+        </tr>
+        <ion-button expand="block" expand="full" shape="round" routerLink="/miclase">
+          <ion-icon slot="start" name="trash-outline" ></ion-icon>
+          Limpiar datos
+        </ion-button>
+        
+      </table>
+      
+    </ion-label>
+  </ion-title>
+<br>
+
+  
+  
+
+  <!-- Cerrar Sesión -->
+  <ion-button color="rgb(161, 72, 190)" expand="block" class="ion-margin-top" (click)="cerrarsesion()">Cerrar Sesión</ion-button>
+</div>
+</ion-content>
