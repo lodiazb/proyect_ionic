@@ -24,7 +24,7 @@ export class Usuario {
     const lista = [];
     lista.push(new Usuario('atorres@duocuc.cl', '1234', 'Ana Torres Leiva'
       , '¿Cuál es tu animal favorito?', 'gato'));
-    lista.push(new Usuario('admin', '1234', 'Matias'
+    lista.push(new Usuario('admin', '1234', 'Lolito Perez'
       , '¿Cuál es tu animal favorito?', 'gato'));
     lista.push(new Usuario('avalenzuela@duocuc.cl', 'qwer', 'Alberto Valenzuela Nuñez'
       , '¿Nombre de su mejor amigo ?', 'Juanito'));
